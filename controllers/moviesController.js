@@ -34,7 +34,7 @@ const updateMovie = async (req, res, next) => {
   try {
     const movie = await Movie.findById(id);
     movie.set(body);
-    const savedMovie = movie.save();
+    const savedMovie = await movie.save();
     return res.status(200).json(savedMovie);
   } catch (err) {
     next(err);

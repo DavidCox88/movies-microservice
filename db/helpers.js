@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { DB_URI } from "../config/environment.js";
 
 function connect() {
   const options = {
@@ -6,11 +7,7 @@ function connect() {
     useUnifiedTopology: true,
   };
 
-  return mongoose.connect(
-    // we need to move this to the environment
-    "mongodb://mongo:27017/lloyds-movies-microservice",
-    options
-  );
+  return mongoose.connect(DB_URI, options);
 }
 
 export default {
